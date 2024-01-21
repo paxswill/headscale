@@ -261,8 +261,8 @@ func validateOIDCCallbackParams(
 	writer http.ResponseWriter,
 	req *http.Request,
 ) (string, string, error) {
-	code := req.URL.Query().Get("code")
-	state := req.URL.Query().Get("state")
+	code := req.FormValue("code")
+	state := req.FormValue("state")
 
 	if code == "" || state == "" {
 		writer.Header().Set("Content-Type", "text/plain; charset=utf-8")
